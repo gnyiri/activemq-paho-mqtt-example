@@ -40,8 +40,10 @@ int main(int argc, char* argv[])
   std::string address("tcp://172.17.0.2:1883");
   std::string client_id("subscriberClient");
   std::string topic("sandboxQueue");
+  std::string username("artemis");
+  std::string password("simetraehcapa");
 
-  while ((opt = getopt(argc, argv, "h:c:t:")) != -1)
+  while ((opt = getopt(argc, argv, "h:c:t:u:p:")) != -1)
   {
     switch (opt)
     {
@@ -54,6 +56,11 @@ int main(int argc, char* argv[])
     case 't':
       topic = std::string(optarg);
       break;
+    case 'u':
+      username = std::string(optarg);
+      break;
+    case 'p':
+      password = std::string(optarg);
     default:
       break;
     }
@@ -63,8 +70,8 @@ int main(int argc, char* argv[])
   MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
   conn_opts.keepAliveInterval = 20;
   conn_opts.cleansession = 1;
-  conn_opts.username = "artemis";
-  conn_opts.password = "simetraehcapa";
+  conn_opts.username = username.c_str();
+  conn_opts.password = password.c_str();
   MQTTClient_message pubmsg = MQTTClient_message_initializer;
   MQTTClient_deliveryToken token;
 
