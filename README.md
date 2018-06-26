@@ -26,3 +26,6 @@ make
 ### Launch publisher (outside container)
 
  ./build/paho_mqtt_publisher -h tcp://127.0.0.1:1883
+
+# Notes
+Examples from https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/index.html have been re-used. 
