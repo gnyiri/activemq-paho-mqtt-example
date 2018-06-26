@@ -1,0 +1,21 @@
+version: "3.0"
+
+services:
+  apme_artemis:
+    image: vromero/activemq-artemis
+    hostname: apme-artemis
+    # environment:
+    #- DISABLE_SECURITY=true
+    ports:
+    - 8161:8161
+    - 1883:1883
+    - 61616:61616
+  apme_paho_mqtt:
+    build:
+      context: .
+      dockerfile: apme_paho_mqtt/Dockerfile
+    image: apme-paho-mqtt
+    command: tail -F /root/.bashrc
+    hostname: apme-paho-mqtt
+    volumes:
+    - ./:/project
