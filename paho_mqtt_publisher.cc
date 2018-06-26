@@ -1,3 +1,9 @@
+/*
+Examples on 
+https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/index.html
+were reused for this code. 
+*/
+
 #include <iostream>
 #include <stdlib.h>
 #include <string>
